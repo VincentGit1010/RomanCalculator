@@ -41,7 +41,14 @@ namespace RomanCalculator
             string calculation = firstNumber.ToString() + operand + secondNumber.ToString();
             System.Data.DataTable dt = new System.Data.DataTable();
             string result = dt.Compute(calculation, null).ToString();
-            return RomanNumbers.ConvertIntegerToRoman(int.Parse(result));
+            if(result == "0")
+            {
+                return "0";
+            }
+            else
+            {
+                return RomanNumbers.ConvertIntegerToRoman(int.Parse(result));
+            }            
         }
         public void Clear()
         {
