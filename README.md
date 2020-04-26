@@ -19,5 +19,5 @@ Issues
   d. %
   e. geheugen
   f +/-
-9. Uitkomst Maximaal 3888 (MMMDCCCLXXXVIII) (LEttertype moet fractie kleiner Minimaal -3888
+9. Uitkomst Maximaal 3888 (MMMDCCCLXXXVIII) (Lettertype moet fractie kleiner Minimaal -3888
 10. Popup om de gebruiker de juiste invoer te laten zien (in IvalidInputException).
