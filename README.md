@@ -12,4 +12,4 @@ Issues
 7. achter de komma
 8. knoppen: wortel, 1/x, kwadraat, %, geheugenfuncties, +/-
 9. Uitkomst Maximaal 3888 (MMMDCCCLXXXVIII) (LEttertype moet fractie kleiner Minimaal -3888
- 
+10. Popup om de gebruiker de juiste invoer te laten zien (in IvalidInputException).
