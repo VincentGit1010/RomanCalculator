@@ -16,7 +16,7 @@ namespace RomanCalculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new wndRomanCalculator());
+            Application.Run(new WndRomanCalculator());
         }
     }
 }

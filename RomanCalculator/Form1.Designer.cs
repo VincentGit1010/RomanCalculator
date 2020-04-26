@@ -1,6 +1,6 @@
 ﻿namespace RomanCalculator
 {
-    partial class wndRomanCalculator
+    partial class WndRomanCalculator
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(wndRomanCalculator));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WndRomanCalculator));
             this.txtCalculation = new System.Windows.Forms.TextBox();
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.btnMemStore = new System.Windows.Forms.Button();
