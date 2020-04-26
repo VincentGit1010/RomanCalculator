@@ -224,6 +224,13 @@ namespace RomanCalculator
         }
         private string ConvertIntegerToRoman(int input)
         {
+            bool isNegative = false;
+            if (input < 0)
+            {
+                isNegative = true;
+                input *= -1;
+            }
+
             int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
             string output = "";
             foreach (int value in values)
@@ -278,6 +285,12 @@ namespace RomanCalculator
                     input -= value;
                 }
             }
+
+            if (isNegative)
+            { 
+                output = "-" + output;
+            }
+
             return output;
         }
 

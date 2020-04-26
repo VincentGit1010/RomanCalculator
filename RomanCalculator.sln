@@ -22,13 +22,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4C7BCB76-F5C6-4557-B2AF-6376CA1C1F20}
 	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://martijnalkmaar.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = RomanCalculator\\RomanCalculator.csproj
-		SccProjectName1 = RomanCalculator
-		SccLocalPath1 = RomanCalculator
-	EndGlobalSection
 EndGlobal
