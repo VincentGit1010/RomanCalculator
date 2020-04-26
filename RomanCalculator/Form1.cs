@@ -13,6 +13,7 @@ namespace RomanCalculator
 
         {
             InitializeComponent();
+            
         }
 
         private void Display(bool isError)
@@ -120,6 +121,24 @@ namespace RomanCalculator
             if (textLength > 0 && !IsCalculated)
             {
                 txtOutput.Text = outputText.Substring(0, textLength - 1);
+            }
+        }
+
+        private void TxtOutput_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string buttonName = "btn" + e.KeyChar.ToString().ToUpper();
+            foreach (var control in this.Controls)
+            {
+                if (control.GetType() != typeof(Button))
+                {
+                    continue;
+                }
+                Button buttonPressed = ((Button)control);
+                if (buttonPressed.Name == buttonName)
+                {
+                    BtnNumber_Click(buttonPressed, null);
+                    break;
+                }
             }
         }
     }
