@@ -1,0 +1,10 @@
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.csprojAssemblyReference.cache
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.Properties.Resources.resources
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.csproj.GenerateResource.cache
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\bin\Debug\RomanCalculator.exe.config
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\bin\Debug\RomanCalculator.exe
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\bin\Debug\RomanCalculator.pdb
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.exe
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.pdb
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.wndRomanCalculator.resources
+C:\Code\Martijn\Development\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.csproj.CoreCompileInputs.cache

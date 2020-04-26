@@ -1,0 +1,8 @@
+﻿I - I
+operand wisselen
+x - L
+cijfers typen?
+scheiden berekeninglogica - besturing form
+meerdere operands voor de uiteindelijke berekening
+achter de komma
+knoppen: wortel, 1/x, kwadraat, %, geheugenfuncties, +/-
