@@ -3,7 +3,7 @@ A Calculator for roman numbers
 
 Issues
 
-1. I - I
+1. I - I (VvR 26-4-2020)
 2. operand wisselen
 3. <s>x - L</s> (MP 26-4-2020)
 4. cijfers typen?
