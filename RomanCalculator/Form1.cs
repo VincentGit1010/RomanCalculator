@@ -52,23 +52,33 @@ namespace RomanCalculator
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
             IsCalculated = false;
-            try
+            string calculationText;
+            if(txtOutput.Text != "" || txtCalculation.Text == "")
             {
-                calculator.SetFirstNumber(RomanNumbers.ConvertStringToInteger(txtOutput.Text));
-            } catch (InvalidInputException)
+                try
+                {
+                    calculator.SetFirstNumber(RomanNumbers.ConvertStringToInteger(txtOutput.Text));
+                    calculationText = txtOutput.Text + " " + ((Button)sender).Text;
+                }
+                catch (InvalidInputException)
+                {
+                    calculator.SetFirstNumber(0);
+                    DisplayError();
+                    return;
+                }
+                if (calculator.GetFirstNumber() == 0)
+                {
+                    return;
+                }
+            } else
             {
-                calculator.SetFirstNumber(0);
-                DisplayError();
-                return;
-            }
-            if (calculator.GetFirstNumber() == 0)
-            {
-                return;
-            }
+                txtCalculation.Text = txtCalculation.Text.Substring(0, txtCalculation.Text.Length - 1);
+                calculationText = txtCalculation.Text + ((Button)sender).Text;
+            }           
             
             calculator.SetOperand(((Button)sender).Tag.ToString());
             Display(false);
-            txtCalculation.Text = txtOutput.Text + " " + ((Button)sender).Text;
+            txtCalculation.Text = calculationText;
             txtOutput.Text = "";
         }
 
