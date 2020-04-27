@@ -4,7 +4,7 @@ A Calculator for roman numbers
 Issues
 
 1. <s>I - I</s> (VvR 26-4-2020)
-2. operand wisselen (??)
+2. operand wisselen (VvR)
 3. <s>x - L</s> (MP 26-4-2020)
 4. Keyboard invoer 
   <s>a. cijfers typen?</s> (VvR 26-4-2020)
