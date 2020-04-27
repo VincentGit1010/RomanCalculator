@@ -8,7 +8,7 @@ Issues
 3. <s>x - L</s> (MP 26-4-2020)
 4. Keyboard invoer 
   <s>a. cijfers typen?</s> (VvR 26-4-2020)
-     b. overige toetsen
+  <s>b. overige toetsen</s> (VvR 27-4-2020)
 5. <s>scheiden berekeninglogica - besturing form</s> (VvR 26-4-2020)
 6. meerdere operands voor de uiteindelijke berekening
 7. achter de komma

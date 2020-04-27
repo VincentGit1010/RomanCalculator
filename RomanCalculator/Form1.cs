@@ -139,6 +139,10 @@ namespace RomanCalculator
         private void TxtOutput_KeyPress(object sender, KeyPressEventArgs e)
         {
             string buttonTag = e.KeyChar.ToString().ToUpper();
+            if (buttonTag == "\b")
+            {
+                buttonTag = "BS";
+            }
             foreach (var control in this.Controls)
             {
                 if (control.GetType() != typeof(Button))
