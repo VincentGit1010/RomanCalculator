@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace RomanCalculator
@@ -8,14 +9,14 @@ namespace RomanCalculator
     public partial class WndRomanCalculator : Form
     {
         private bool IsCalculated;
-        private Calculator calculator = new Calculator();
+        private readonly Calculator calculator = new Calculator();
+        private static readonly string[] numbers = { "I", "V", "X", "L", "C", "D", "M" };
+        private static readonly string[] operands = { "+", "-", "*", "/" };
         public WndRomanCalculator()
-
         {
             InitializeComponent();
-            
+            txtOutput.Focus();
         }
-
         private void Display(bool isError)
         {
             if (isError)
@@ -26,6 +27,7 @@ namespace RomanCalculator
             {
                 txtCalculation.ForeColor = Color.Black;
             }
+            txtOutput.Focus();
         }
 
         private void DisplayError()
@@ -136,7 +138,7 @@ namespace RomanCalculator
 
         private void TxtOutput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string buttonName = "btn" + e.KeyChar.ToString().ToUpper();
+            string buttonTag = e.KeyChar.ToString().ToUpper();
             foreach (var control in this.Controls)
             {
                 if (control.GetType() != typeof(Button))
@@ -144,10 +146,25 @@ namespace RomanCalculator
                     continue;
                 }
                 Button buttonPressed = ((Button)control);
-                if (buttonPressed.Name == buttonName)
+                if (buttonPressed.Tag.ToString() == buttonTag)
                 {
-                    BtnNumber_Click(buttonPressed, null);
-                    break;
+                    if (numbers.Contains(buttonTag))
+                    {
+                        BtnNumber_Click(buttonPressed, null);
+                        break;
+                    }
+                    else if (operands.Contains(buttonTag))
+                    {
+                        BtnCalculate_Click(buttonPressed, null);
+                    }
+                    else if (buttonTag == "=")
+                    {
+                        BtnEquals_Click(buttonPressed, null);
+                    }
+                    else if (buttonTag == "BS")
+                    {
+                        TxtBackspace_Click(buttonPressed, null);
+                    }
                 }
             }
         }
