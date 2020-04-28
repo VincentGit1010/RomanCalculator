@@ -10,7 +10,7 @@ Issues
   <s>a. cijfers typen?</s> (VvR 26-4-2020)
      b. overige toetsen
 5. <s>scheiden berekeninglogica - besturing form</s> (VvR 26-4-2020)
-6. meerdere operands voor de uiteindelijke berekening
+6. <s>meerdere operands voor de uiteindelijke berekening</s> (VvR 27-4)
 7. achter de komma
 8. knoppen: wortel, 1/x, kwadraat, %, geheugenfuncties, +/- (M.P)
   a. Wortel
