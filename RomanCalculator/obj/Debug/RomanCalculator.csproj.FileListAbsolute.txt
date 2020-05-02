@@ -18,3 +18,5 @@ C:\repositories\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.csproj
 C:\repositories\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.csproj.CoreCompileInputs.cache
 C:\repositories\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.exe
 C:\repositories\RomanCalculator\RomanCalculator\obj\Debug\RomanCalculator.pdb
+C:\Repositories\RomanCalculator\RomanCalculator\bin\Debug\Resources\KwadraatknopSmall.png
+C:\Repositories\RomanCalculator\RomanCalculator\bin\Debug\Resources\ToonGeheugenknopSmall.png
