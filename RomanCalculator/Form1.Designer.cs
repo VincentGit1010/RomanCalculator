@@ -41,7 +41,7 @@
             this.btnClearEntry = new System.Windows.Forms.Button();
             this.btnProcent = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
-            this.btnSquare = new System.Windows.Forms.Button();
+            this.btnRoot = new System.Windows.Forms.Button();
             this.btnReciprocal = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
             this.btnMin = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
             this.btnNegate = new System.Windows.Forms.Button();
             this.btnD = new System.Windows.Forms.Button();
             this.btnMemShow = new System.Windows.Forms.Button();
-            this.btnKwadraat = new System.Windows.Forms.Button();
+            this.btnSquare = new System.Windows.Forms.Button();
             this.lblMem = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -219,17 +219,17 @@
             this.btnDivide.UseVisualStyleBackColor = false;
             this.btnDivide.Click += new System.EventHandler(this.BtnOperand_Click);
             // 
-            // btnSquare
+            // btnRoot
             // 
-            this.btnSquare.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnSquare.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSquare.Location = new System.Drawing.Point(268, 278);
-            this.btnSquare.Name = "btnSquare";
-            this.btnSquare.Size = new System.Drawing.Size(122, 75);
-            this.btnSquare.TabIndex = 50;
-            this.btnSquare.Tag = "vx";
-            this.btnSquare.Text = "√x";
-            this.btnSquare.UseVisualStyleBackColor = false;
+            this.btnRoot.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoot.Location = new System.Drawing.Point(268, 278);
+            this.btnRoot.Name = "btnRoot";
+            this.btnRoot.Size = new System.Drawing.Size(122, 75);
+            this.btnRoot.TabIndex = 50;
+            this.btnRoot.Tag = "vx";
+            this.btnRoot.Text = "√x";
+            this.btnRoot.UseVisualStyleBackColor = false;
             // 
             // btnReciprocal
             // 
@@ -424,16 +424,17 @@
             this.btnMemShow.UseVisualStyleBackColor = false;
             this.btnMemShow.Click += new System.EventHandler(this.BtnMemShow_Click);
             // 
-            // btnKwadraat
+            // btnSquare
             // 
-            this.btnKwadraat.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnKwadraat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKwadraat.Location = new System.Drawing.Point(9, 278);
-            this.btnKwadraat.Name = "btnKwadraat";
-            this.btnKwadraat.Size = new System.Drawing.Size(122, 75);
-            this.btnKwadraat.TabIndex = 48;
-            this.btnKwadraat.Tag = "x2";
-            this.btnKwadraat.UseVisualStyleBackColor = false;
+            this.btnSquare.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSquare.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSquare.Image = global::RomanCalculator.Properties.Resources.KwadraatknopSmall;
+            this.btnSquare.Location = new System.Drawing.Point(9, 278);
+            this.btnSquare.Name = "btnSquare";
+            this.btnSquare.Size = new System.Drawing.Size(122, 75);
+            this.btnSquare.TabIndex = 48;
+            this.btnSquare.Tag = "x2";
+            this.btnSquare.UseVisualStyleBackColor = false;
             // 
             // lblMem
             // 
@@ -467,9 +468,9 @@
             this.Controls.Add(this.btnClearEntry);
             this.Controls.Add(this.btnProcent);
             this.Controls.Add(this.btnDivide);
-            this.Controls.Add(this.btnSquare);
+            this.Controls.Add(this.btnRoot);
             this.Controls.Add(this.btnReciprocal);
-            this.Controls.Add(this.btnKwadraat);
+            this.Controls.Add(this.btnSquare);
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.btnMin);
             this.Controls.Add(this.btnPlus);
@@ -506,9 +507,9 @@
         internal System.Windows.Forms.Button btnClearEntry;
         internal System.Windows.Forms.Button btnProcent;
         internal System.Windows.Forms.Button btnDivide;
-        internal System.Windows.Forms.Button btnSquare;
+        internal System.Windows.Forms.Button btnRoot;
         internal System.Windows.Forms.Button btnReciprocal;
-        internal System.Windows.Forms.Button btnKwadraat;
+        internal System.Windows.Forms.Button btnSquare;
         internal System.Windows.Forms.Button btnMultiply;
         internal System.Windows.Forms.Button btnMin;
         internal System.Windows.Forms.Button btnPlus;
