@@ -1,6 +1,3 @@
-README.md
-RomanCalculator\bin\
-RomanCalculator\obj\
-.vs\
-/RomanCalculator/obj/Debug
-/.vs/RomanCalculator/v16/Server/sqlite3
+/RomanCalculator/obj
+/RomanCalculator/bin
+/.vs
