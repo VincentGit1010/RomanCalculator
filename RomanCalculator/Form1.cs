@@ -318,20 +318,38 @@ namespace RomanCalculator
         private void BtnRoot_Click(object sender, EventArgs e)
         {
             string outputText = txtOutput.Text;
-            txtCalculation.Text = "";
-            try
+            if(txtCalculation.Text == "")
             {
-                calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText);
+                try
+                {
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText);
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError();
+                    return;
+                }
+                Display(false);
+                txtCalculation.Text = "\u221A" + outputText;
+                txtOutput.Text = calculator.SquareRoot(outputText);
+                isCalculated = true;
             }
-            catch (InvalidInputException)
+            else
             {
-                DisplayError();
-                return;
-            }            
-            Display(false);
-            txtCalculation.Text = "\u221A" + outputText;
-            txtOutput.Text = calculator.SquareRoot(outputText);
-            isCalculated = true;
+                txtCalculation.Text += "\u221A" + outputText;
+                try
+                {
+                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(calculator.SquareRoot(outputText));
+                    txtOutput.Text = calculator.Calculate();
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError();
+                    return;
+                }
+
+            }
+            
         }
 
         private void EnableMemFunctions(bool enable)
