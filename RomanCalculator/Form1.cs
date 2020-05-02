@@ -14,6 +14,7 @@ namespace RomanCalculator
         {
             InitializeComponent();
             KeyPreview = true;
+
         }
 
         private void WndRomanCalculator_KeyPress(object sender, KeyPressEventArgs e)
@@ -272,6 +273,7 @@ namespace RomanCalculator
         {
             if (unfolded)
             {
+                lblMem.Visible = false;
                 lblMem.BackColor = SystemColors.Control;
                 this.BackColor = SystemColors.Control;
                 txtOutput.BackColor = SystemColors.Control;
@@ -291,6 +293,7 @@ namespace RomanCalculator
             }
             else
             {
+                lblMem.Visible = true;
                 lblMem.BackColor = SystemColors.ScrollBar;
                 this.BackColor = SystemColors.ControlDark;
                 txtOutput.BackColor = SystemColors.ControlDark;
