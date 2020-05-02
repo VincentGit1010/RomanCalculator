@@ -9,7 +9,6 @@ namespace RomanCalculator
     {
         private bool isCalculated, unfolded;
         private readonly Calculator calculator = new Calculator();
-        public string GoodString { get; set; }
 
         public WndRomanCalculator()
         {
@@ -78,6 +77,12 @@ namespace RomanCalculator
             }
         }
 
+
+
+
+
+
+
         private void Display(bool isError)
         {
             if (isError)
@@ -88,25 +93,19 @@ namespace RomanCalculator
             {
                 txtCalculation.ForeColor = Color.Black;
             }
+            txtOutput.Focus();
         }
 
-        private void DisplayError(string badText, string goodText)
+        private void DisplayError()
         {
-            wndException dialogForm = new wndException
-            {
-                BadText = badText,
-                GoodText = goodText
-            };
-
-            dialogForm.ShowDialog(this);
-            isCalculated = false;
+            isCalculated = true;
             Display(true);
             txtOutput.Text = "Error";
         }
 
         private void BtnNumber_Click(object sender, EventArgs e)
         {
-            if (isCalculated || txtOutput.Text == "Error")
+            if (isCalculated)
             {
                 Display(false);
                 isCalculated = false;
@@ -126,13 +125,13 @@ namespace RomanCalculator
             {
                 try
                 {
-                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(txtOutput.Text, false);
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(txtOutput.Text);
                     calculationText = txtOutput.Text + " " + ((Button)sender).Text;
                 }
                 catch (InvalidInputException)
                 {
                     calculator.FirstNumber = 0;
-                    DisplayError(txtOutput.Text, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(txtOutput.Text,true)));
+                    DisplayError();
                     return;
                 }
                 if (calculator.FirstNumber == 0)
@@ -175,17 +174,17 @@ namespace RomanCalculator
             string calculationText = txtCalculation.Text;
             try
             {
-                calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(outputText);
             }
             catch (InvalidInputException)
             {
-                DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                DisplayError();
                 return;
             }
             if (calculator.SecondNumber == 0)
             {
                 txtCalculation.Text = calculationText + " " + outputText + " = ";
-                DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                DisplayError();
                 return;
             }
 
@@ -246,7 +245,7 @@ namespace RomanCalculator
             {
                 return;
             }
-            calculator.Memory += RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString(), false);
+            calculator.Memory += RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString());
             EnableMemFunctions(true);
         }
 
@@ -256,7 +255,7 @@ namespace RomanCalculator
             {
                 return;
             }
-            calculator.Memory -= RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString(), false);
+            calculator.Memory -= RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString());
             EnableMemFunctions(true);
         }
 
@@ -266,7 +265,7 @@ namespace RomanCalculator
             {
                 return;
             }
-            calculator.Memory = RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString(), false);
+            calculator.Memory = RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString());
             EnableMemFunctions(true);
         }
 
