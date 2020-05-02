@@ -7,15 +7,81 @@ namespace RomanCalculator
 {
     public partial class WndRomanCalculator : Form
     {
-        private bool IsCalculated;
+        private bool isCalculated, unfolded;
         private readonly Calculator calculator = new Calculator();
-        private static readonly string[] numbers = { "I", "V", "X", "L", "C", "D", "M" };
-        private static readonly string[] operands = { "+", "-", "*", "/" };
+
         public WndRomanCalculator()
         {
             InitializeComponent();
             KeyPreview = true;
         }
+
+        private void WndRomanCalculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string buttonPressed = "btn" + e.KeyChar.ToString().ToUpper();
+
+            switch (e.KeyChar)
+            {
+                case '+':
+                    buttonPressed = "btnPlus";
+                    break;
+                case '-':
+                    buttonPressed = "btnMin";
+                    break;
+                case '/':
+                    buttonPressed = "btnDivide";
+                    break;
+                case '*':
+                    buttonPressed = "btnMultiply";
+                    break;
+                case '=':
+                    buttonPressed = "btnEquals";
+                    break;
+                case '\b':
+                    buttonPressed = "btnBackspace";
+                    break;
+            }
+            Button button = Controls.OfType<Button>()
+                                    .FirstOrDefault(x => x.Name == buttonPressed);
+
+            switch (button.Name)
+            {
+                case "btnI":
+                case "btnV":
+                case "btnX":
+                case "btnL":
+                case "btnC":
+                case "btnD":
+                case "btnM":
+                    BtnNumber_Click(button, null);
+                    break;
+                case "btnPlus":
+                case "btnMin":
+                case "btnMultiply":
+                case "btnDivide":
+                    BtnOperand_Click(button, null);
+                    break;
+                case "btnSquare":
+                case "btnReciprocal":
+                case "btnRoot":
+                case "btnProcent":
+                    BtnFunction_Click(button, null);
+                    break;
+                case "btnEquals":
+                    BtnEquals_Click(button, null);
+                    break;
+                case "btnBackspace":
+                    BtnBackspace_Click(button, null);
+                    break;
+            }
+        }
+
+
+
+
+
+
+
         private void Display(bool isError)
         {
             if (isError)
@@ -52,32 +118,33 @@ namespace RomanCalculator
 
         private void BtnOperand_Click(object sender, EventArgs e)
         {
-            IsCalculated = false;
+            isCalculated = false;
             string calculationText;
-            if(txtOutput.Text != "" || txtCalculation.Text == "")
+            if (txtOutput.Text != "" || txtCalculation.Text == "")
             {
                 try
                 {
-                    calculator.SetFirstNumber(RomanNumbers.ConvertStringToInteger(txtOutput.Text));
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(txtOutput.Text);
                     calculationText = txtOutput.Text + " " + ((Button)sender).Text;
                 }
                 catch (InvalidInputException)
                 {
-                    calculator.SetFirstNumber(0);
+                    calculator.FirstNumber = 0;
                     DisplayError();
                     return;
                 }
-                if (calculator.GetFirstNumber() == 0)
+                if (calculator.FirstNumber == 0)
                 {
                     return;
                 }
-            } else
+            }
+            else
             {
                 txtCalculation.Text = txtCalculation.Text.Substring(0, txtCalculation.Text.Length - 1);
                 calculationText = txtCalculation.Text + ((Button)sender).Text;
-            }           
-            
-            calculator.SetOperand(((Button)sender).Tag.ToString());
+            }
+
+            calculator.Operand = (((Button)sender).Tag.ToString());
             Display(false);
             txtCalculation.Text = calculationText;
             txtOutput.Text = "";
@@ -221,7 +288,6 @@ namespace RomanCalculator
                 lblMem.Height = 13;
                 lblMem.SendToBack();
                 lblMem.Text = "";
-                unfolded = false;
             }
             else
             {
