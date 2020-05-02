@@ -153,7 +153,7 @@
             this.btnMemClear.Tag = "MC";
             this.btnMemClear.Text = "MC";
             this.btnMemClear.UseVisualStyleBackColor = false;
-            this.btnMemClear.Click += new System.EventHandler(this.BtnClear_Click);
+            this.btnMemClear.Click += new System.EventHandler(this.BtnMemClear_Click);
             // 
             // btnBackspace
             // 
