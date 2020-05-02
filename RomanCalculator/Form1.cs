@@ -322,11 +322,11 @@ namespace RomanCalculator
             txtCalculation.Text = "";
             try
             {
-                calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText);
+                calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
             }
             catch (InvalidInputException)
             {
-                DisplayError();
+                DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, false)));
                 return;
             }            
             Display(false);

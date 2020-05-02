@@ -33,7 +33,7 @@ namespace RomanCalculator
 
         public string SquareRoot(string input)
         {
-            double dblInput = RomanNumbers.ConvertRomanToInteger(input);
+            double dblInput = RomanNumbers.ConvertRomanToInteger(input,false);
             int Result = Convert.ToInt32(Math.Round(Math.Sqrt(dblInput)));
             return RomanNumbers.ConvertIntegerToRoman(Result);
         }
