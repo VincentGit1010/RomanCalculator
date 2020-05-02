@@ -1,4 +1,6 @@
-﻿namespace RomanCalculator
+﻿using System;
+
+namespace RomanCalculator
 {
     class Calculator
     {
@@ -28,5 +30,13 @@
             SecondNumber = 0;
             Operand = "";
         }
+
+        public string SquareRoot(string input)
+        {
+            double dblInput = RomanNumbers.ConvertRomanToInteger(input);
+            int Result = Convert.ToInt32(Math.Round(Math.Sqrt(dblInput)));
+            return RomanNumbers.ConvertIntegerToRoman(Result);
+        }
+
     }
 }

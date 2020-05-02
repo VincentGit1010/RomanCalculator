@@ -315,6 +315,25 @@ namespace RomanCalculator
             Refresh();
         }
 
+        private void BtnRoot_Click(object sender, EventArgs e)
+        {
+            string outputText = txtOutput.Text;
+            txtCalculation.Text = "";
+            try
+            {
+                calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText);
+            }
+            catch (InvalidInputException)
+            {
+                DisplayError();
+                return;
+            }            
+            Display(false);
+            txtCalculation.Text = "\u221A" + outputText;
+            txtOutput.Text = calculator.SquareRoot(outputText);
+            isCalculated = true;
+        }
+
         private void EnableMemFunctions(bool enable)
         {
             if (enable == true)
