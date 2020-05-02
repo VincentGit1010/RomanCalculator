@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RomanCalculator
+﻿namespace RomanCalculator
 {
     class RomanNumbers
     {
-        public static int ConvertStringToInteger(string strInput)
+        public static int ConvertRomanToInteger(string strInput)
         {
             int returnInt = 0;
             char[] Input = strInput.ToCharArray();
@@ -32,6 +26,7 @@ namespace RomanCalculator
                 return returnInt;
             }            
         }
+
         public static int GetRomanValue(char charCurrent)
         {
             int intResult;
@@ -64,6 +59,7 @@ namespace RomanCalculator
             }
             return intResult;
         }
+
         public static int GetRomanValue(char charCurrent, char charPrevious)
         {
             int intResult;
@@ -138,6 +134,7 @@ namespace RomanCalculator
             }
             return intResult;
         }
+
         public static string ConvertIntegerToRoman(int input)
         {
             bool isNegative = false;

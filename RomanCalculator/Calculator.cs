@@ -1,44 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RomanCalculator
+﻿namespace RomanCalculator
 {
     class Calculator
     {
-        private int firstNumber;
-        private int secondNumber;
-        private string operand;
+        public int FirstNumber { get; set; }
+        public int Memory { get; set; }
+        public string Operand { get; set; }
+        public int SecondNumber { get; set; }
 
-        public void SetOperand(string operandIn)
-        {
-            operand = operandIn;
-        }
-        public string GetOperand()
-        {
-            return operand;
-        }
-        public void SetFirstNumber(int firstNumberIn)
-        {
-            firstNumber = firstNumberIn;
-        }
-        public int GetFirstNumber()
-        {
-            return firstNumber;
-        }
-        public void SetSecondNumber(int secondNumberIn)
-        {
-            secondNumber = secondNumberIn;
-        }
-        public int GetSecondNumber()
-        {
-            return secondNumber;
-        }
         public string Calculate()
         {
-            string calculation = firstNumber.ToString() + operand + secondNumber.ToString();
+            string calculation = FirstNumber.ToString() + Operand + SecondNumber.ToString();
             System.Data.DataTable dt = new System.Data.DataTable();
             string result = dt.Compute(calculation, null).ToString();
             if(result == "0")
@@ -50,11 +21,12 @@ namespace RomanCalculator
                 return RomanNumbers.ConvertIntegerToRoman(int.Parse(result));
             }            
         }
+
         public void Clear()
         {
-            firstNumber = 0;
-            secondNumber = 0;
-            operand = "";
+            FirstNumber = 0;
+            SecondNumber = 0;
+            Operand = "";
         }
     }
 }

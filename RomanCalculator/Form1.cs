@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +14,7 @@ namespace RomanCalculator
         public WndRomanCalculator()
         {
             InitializeComponent();
-            txtOutput.Focus();
+            KeyPreview = true;
         }
         private void Display(bool isError)
         {
@@ -32,26 +31,26 @@ namespace RomanCalculator
 
         private void DisplayError()
         {
-            IsCalculated = true;
+            isCalculated = true;
             Display(true);
             txtOutput.Text = "Error";
         }
 
         private void BtnNumber_Click(object sender, EventArgs e)
         {
-            if (IsCalculated)
+            if (isCalculated)
             {
                 Display(false);
-                IsCalculated = false;
+                isCalculated = false;
                 txtOutput.Text = "";
-                calculator.SetOperand("");
+                calculator.Operand = "";
                 txtCalculation.Text = "";
             }
             string buttonText = ((Button)sender).Text;
             txtOutput.Text += buttonText;
         }
 
-        private void BtnCalculate_Click(object sender, EventArgs e)
+        private void BtnOperand_Click(object sender, EventArgs e)
         {
             IsCalculated = false;
             string calculationText;
@@ -84,20 +83,37 @@ namespace RomanCalculator
             txtOutput.Text = "";
         }
 
+        private void BtnFunction_Click(object sender, EventArgs e)
+        {
+            string button = ((Button)sender).Name;
+
+            switch (button)
+            {
+                case "btnSquare":
+                    break;
+                case "btnReciprocal":
+                    break;
+                case "btnRoot":
+                    break;
+                case "btnProcent":
+                    break;
+            }
+        }
+
         private void BtnEquals_Click(object sender, EventArgs e)
         {
             string outputText = txtOutput.Text;
             string calculationText = txtCalculation.Text;
             try
             {
-                calculator.SetSecondNumber(RomanNumbers.ConvertStringToInteger(outputText));
+                calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(outputText);
             }
             catch (InvalidInputException)
             {
                 DisplayError();
                 return;
             }
-            if (calculator.GetSecondNumber() == 0)
+            if (calculator.SecondNumber == 0)
             {
                 txtCalculation.Text = calculationText + " " + outputText + " = ";
                 DisplayError();
@@ -107,7 +123,7 @@ namespace RomanCalculator
             Display(false);
             txtCalculation.Text = calculationText + " " + outputText + " = ";
             txtOutput.Text = calculator.Calculate();
-            IsCalculated = true;
+            isCalculated = true;
         }
 
         private void BtnClear_Click(object sender, EventArgs e)
@@ -115,61 +131,136 @@ namespace RomanCalculator
             calculator.Clear();
             txtOutput.Text = "";
             txtCalculation.Text = "";
-            IsCalculated = false;
+            isCalculated = false;
         }
 
         private void BtnClearEntry_Click(object sender, EventArgs e)
         {
-            if (!IsCalculated)
+            if (!isCalculated)
             {
                 txtOutput.Text = "";
             }
         }
 
-        private void TxtBackspace_Click(object sender, EventArgs e)
+        private void BtnBackspace_Click(object sender, EventArgs e)
         {
             string outputText = txtOutput.Text;
             int textLength = outputText.Length;
-            if (textLength > 0 && !IsCalculated)
+            if (textLength > 0 && !isCalculated)
             {
                 txtOutput.Text = outputText.Substring(0, textLength - 1);
             }
         }
 
-        private void TxtOutput_KeyPress(object sender, KeyPressEventArgs e)
+        private void BtnMemClear_Click(object sender, EventArgs e)
         {
-            string buttonTag = e.KeyChar.ToString().ToUpper();
-            if (buttonTag == "\b")
+            EnableMemFunctions(false);
+            calculator.Memory = 0;
+        }
+
+        private void BtnMemRecall_Click(object sender, EventArgs e)
+        {
+            txtOutput.Text = RomanNumbers.ConvertIntegerToRoman(calculator.Memory);
+            if (calculator.FirstNumber == 0)
             {
-                buttonTag = "BS";
+                calculator.FirstNumber = calculator.Memory;
             }
-            foreach (var control in this.Controls)
+            else
             {
-                if (control.GetType() != typeof(Button))
-                {
-                    continue;
-                }
-                Button buttonPressed = ((Button)control);
-                if (buttonPressed.Tag.ToString() == buttonTag)
-                {
-                    if (numbers.Contains(buttonTag))
-                    {
-                        BtnNumber_Click(buttonPressed, null);
-                        break;
-                    }
-                    else if (operands.Contains(buttonTag))
-                    {
-                        BtnCalculate_Click(buttonPressed, null);
-                    }
-                    else if (buttonTag == "=")
-                    {
-                        BtnEquals_Click(buttonPressed, null);
-                    }
-                    else if (buttonTag == "BS")
-                    {
-                        TxtBackspace_Click(buttonPressed, null);
-                    }
-                }
+                calculator.SecondNumber = calculator.Memory;
+            }
+        }
+
+        private void BtnMemPlus_Click(object sender, EventArgs e)
+        {
+            if (txtOutput.Text == "")
+            {
+                return;
+            }
+            calculator.Memory += RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString());
+            EnableMemFunctions(true);
+        }
+
+        private void BtnMemMin_Click(object sender, EventArgs e)
+        {
+            if (txtOutput.Text == "")
+            {
+                return;
+            }
+            calculator.Memory -= RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString());
+            EnableMemFunctions(true);
+        }
+
+        private void BtnMemStore_Click(object sender, EventArgs e)
+        {
+            if (txtOutput.Text == "")
+            {
+                return;
+            }
+            calculator.Memory = RomanNumbers.ConvertRomanToInteger(txtOutput.Text.ToString());
+            EnableMemFunctions(true);
+        }
+
+        private void BtnMemShow_Click(object sender, EventArgs e)
+        {
+            if (unfolded)
+            {
+                lblMem.BackColor = SystemColors.Control;
+                this.BackColor = SystemColors.Control;
+                txtOutput.BackColor = SystemColors.Control;
+                txtCalculation.BackColor = SystemColors.Control;
+                btnMemClear.BackColor = SystemColors.Control;
+                btnMemMin.BackColor = SystemColors.Control;
+                btnMemPlus.BackColor = SystemColors.Control;
+                btnMemRecall.BackColor = SystemColors.Control;
+                btnMemShow.BackColor = SystemColors.Control;
+                btnMemStore.BackColor = SystemColors.Control;
+                lblMem.Left = 3;
+                lblMem.Top = 77;
+                lblMem.Width = 34;
+                lblMem.Height = 13;
+                lblMem.SendToBack();
+                lblMem.Text = "";
+                unfolded = false;
+            }
+            else
+            {
+                lblMem.BackColor = SystemColors.ScrollBar;
+                this.BackColor = SystemColors.ControlDark;
+                txtOutput.BackColor = SystemColors.ControlDark;
+                txtCalculation.BackColor = SystemColors.ControlDark;
+                btnMemClear.BackColor = SystemColors.ControlDark;
+                btnMemMin.BackColor = SystemColors.ControlDark;
+                btnMemPlus.BackColor = SystemColors.ControlDark;
+                btnMemRecall.BackColor = SystemColors.ControlDark;
+                btnMemShow.BackColor = SystemColors.ControlDark;
+                btnMemStore.BackColor = SystemColors.ControlDark;
+                lblMem.Left = 6;
+                lblMem.Top = 128;
+                lblMem.Width = 340;
+                lblMem.Height = 313;
+                lblMem.BringToFront();
+                lblMem.Text = RomanNumbers.ConvertIntegerToRoman(calculator.Memory);
+                unfolded = true;
+            }
+            Refresh();
+        }
+
+        private void EnableMemFunctions(bool enable)
+        {
+            if (enable == true)
+            {
+                btnMemClear.Enabled = true;
+                btnMemMin.Enabled = true;
+                btnMemPlus.Enabled = true;
+                btnMemRecall.Enabled = true;
+                btnMemShow.Enabled = true;
+            }
+            else
+            {
+                btnMemClear.Enabled = false;
+                btnMemRecall.Enabled = false;
+                btnMemShow.Enabled = false;
             }
         }
     }

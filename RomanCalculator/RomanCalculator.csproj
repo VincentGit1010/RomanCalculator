@@ -92,7 +92,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Issues.txt" />
     <None Include="Resources\KwadraatknopSmall.png" />
     <None Include="Resources\ToonGeheugenknopSmall.png" />
   </ItemGroup>
