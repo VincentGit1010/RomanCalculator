@@ -354,6 +354,11 @@ namespace RomanCalculator
             
         }
 
+        private void BtnReciprocal_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1\\x is nog niet ingebouwd.");
+        }
+
         private void EnableMemFunctions(bool enable)
         {
             if (enable == true)
