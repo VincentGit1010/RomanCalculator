@@ -323,11 +323,11 @@ namespace RomanCalculator
             {
                 try
                 {
-                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText);
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
                 }
                 catch (InvalidInputException)
                 {
-                    DisplayError();
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
                     return;
                 }
                 Display(false);
@@ -340,12 +340,13 @@ namespace RomanCalculator
                 txtCalculation.Text += "\u221A" + outputText;
                 try
                 {
-                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(calculator.SquareRoot(outputText));
+                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(calculator.SquareRoot(outputText), false);
                     txtOutput.Text = calculator.Calculate();
                 }
                 catch (InvalidInputException)
                 {
-                    DisplayError();
+
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
                     return;
                 }
 
