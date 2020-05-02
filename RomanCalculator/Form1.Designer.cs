@@ -36,18 +36,18 @@
             this.btnMemPlus = new System.Windows.Forms.Button();
             this.btnMemRecall = new System.Windows.Forms.Button();
             this.btnMemClear = new System.Windows.Forms.Button();
-            this.txtBackspace = new System.Windows.Forms.Button();
+            this.btnBackspace = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnClearEntry = new System.Windows.Forms.Button();
             this.btnProcent = new System.Windows.Forms.Button();
             this.btnDivide = new System.Windows.Forms.Button();
-            this.btnSquare = new System.Windows.Forms.Button();
+            this.btnRoot = new System.Windows.Forms.Button();
             this.btnReciprocal = new System.Windows.Forms.Button();
             this.btnMultiply = new System.Windows.Forms.Button();
             this.btnMin = new System.Windows.Forms.Button();
             this.btnPlus = new System.Windows.Forms.Button();
             this.btnEquals = new System.Windows.Forms.Button();
-            this.bntM = new System.Windows.Forms.Button();
+            this.btnM = new System.Windows.Forms.Button();
             this.btnComma = new System.Windows.Forms.Button();
             this.btnI = new System.Windows.Forms.Button();
             this.btnV = new System.Windows.Forms.Button();
@@ -57,7 +57,8 @@
             this.btnNegate = new System.Windows.Forms.Button();
             this.btnD = new System.Windows.Forms.Button();
             this.btnMemShow = new System.Windows.Forms.Button();
-            this.btnKwadraat = new System.Windows.Forms.Button();
+            this.btnSquare = new System.Windows.Forms.Button();
+            this.lblMem = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtCalculation
@@ -83,90 +84,95 @@
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ReadOnly = true;
-            this.txtOutput.Size = new System.Drawing.Size(507, 67);
-            this.txtOutput.TabIndex = 62;
+            this.txtOutput.Size = new System.Drawing.Size(507, 60);
+            this.txtOutput.TabIndex = 20;
             this.txtOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnMemStore
             // 
             this.btnMemStore.BackColor = System.Drawing.SystemColors.Control;
             this.btnMemStore.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemStore.Location = new System.Drawing.Point(353, 141);
+            this.btnMemStore.Location = new System.Drawing.Point(352, 142);
             this.btnMemStore.Name = "btnMemStore";
-            this.btnMemStore.Size = new System.Drawing.Size(80, 50);
+            this.btnMemStore.Size = new System.Drawing.Size(80, 49);
             this.btnMemStore.TabIndex = 60;
             this.btnMemStore.Tag = "MS";
             this.btnMemStore.Text = "MS";
             this.btnMemStore.UseVisualStyleBackColor = false;
+            this.btnMemStore.Click += new System.EventHandler(this.BtnMemStore_Click);
             // 
             // btnMemMin
             // 
             this.btnMemMin.BackColor = System.Drawing.SystemColors.Control;
             this.btnMemMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemMin.Location = new System.Drawing.Point(267, 141);
+            this.btnMemMin.Location = new System.Drawing.Point(267, 142);
             this.btnMemMin.Name = "btnMemMin";
-            this.btnMemMin.Size = new System.Drawing.Size(80, 50);
+            this.btnMemMin.Size = new System.Drawing.Size(80, 49);
             this.btnMemMin.TabIndex = 59;
             this.btnMemMin.Tag = "M-";
             this.btnMemMin.Text = "M-";
             this.btnMemMin.UseVisualStyleBackColor = false;
+            this.btnMemMin.Click += new System.EventHandler(this.BtnMemMin_Click);
             // 
             // btnMemPlus
             // 
             this.btnMemPlus.BackColor = System.Drawing.SystemColors.Control;
             this.btnMemPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemPlus.Location = new System.Drawing.Point(181, 141);
+            this.btnMemPlus.Location = new System.Drawing.Point(182, 142);
             this.btnMemPlus.Name = "btnMemPlus";
-            this.btnMemPlus.Size = new System.Drawing.Size(80, 50);
+            this.btnMemPlus.Size = new System.Drawing.Size(80, 49);
             this.btnMemPlus.TabIndex = 58;
             this.btnMemPlus.Tag = "M+";
             this.btnMemPlus.Text = "M+";
             this.btnMemPlus.UseVisualStyleBackColor = false;
+            this.btnMemPlus.Click += new System.EventHandler(this.BtnMemPlus_Click);
             // 
             // btnMemRecall
             // 
             this.btnMemRecall.BackColor = System.Drawing.SystemColors.Control;
             this.btnMemRecall.Enabled = false;
             this.btnMemRecall.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemRecall.Location = new System.Drawing.Point(95, 141);
+            this.btnMemRecall.Location = new System.Drawing.Point(94, 142);
             this.btnMemRecall.Name = "btnMemRecall";
-            this.btnMemRecall.Size = new System.Drawing.Size(80, 50);
+            this.btnMemRecall.Size = new System.Drawing.Size(80, 49);
             this.btnMemRecall.TabIndex = 57;
             this.btnMemRecall.Tag = "MR";
             this.btnMemRecall.Text = "MR";
             this.btnMemRecall.UseVisualStyleBackColor = false;
+            this.btnMemRecall.Click += new System.EventHandler(this.BtnMemRecall_Click);
             // 
             // btnMemClear
             // 
             this.btnMemClear.BackColor = System.Drawing.SystemColors.Control;
             this.btnMemClear.Enabled = false;
             this.btnMemClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMemClear.Location = new System.Drawing.Point(9, 141);
+            this.btnMemClear.Location = new System.Drawing.Point(9, 142);
             this.btnMemClear.Name = "btnMemClear";
-            this.btnMemClear.Size = new System.Drawing.Size(80, 50);
+            this.btnMemClear.Size = new System.Drawing.Size(80, 49);
             this.btnMemClear.TabIndex = 56;
             this.btnMemClear.Tag = "MC";
             this.btnMemClear.Text = "MC";
             this.btnMemClear.UseVisualStyleBackColor = false;
+            this.btnMemClear.Click += new System.EventHandler(this.BtnMemClear_Click);
             // 
-            // txtBackspace
+            // btnBackspace
             // 
-            this.txtBackspace.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBackspace.Location = new System.Drawing.Point(397, 197);
-            this.txtBackspace.Name = "txtBackspace";
-            this.txtBackspace.Size = new System.Drawing.Size(122, 75);
-            this.txtBackspace.TabIndex = 55;
-            this.txtBackspace.Tag = "BS";
-            this.txtBackspace.Text = "←";
-            this.txtBackspace.UseVisualStyleBackColor = false;
-            this.txtBackspace.Click += new System.EventHandler(this.TxtBackspace_Click);
+            this.btnBackspace.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackspace.Location = new System.Drawing.Point(398, 197);
+            this.btnBackspace.Name = "btnBackspace";
+            this.btnBackspace.Size = new System.Drawing.Size(122, 75);
+            this.btnBackspace.TabIndex = 55;
+            this.btnBackspace.Tag = "BS";
+            this.btnBackspace.Text = "←";
+            this.btnBackspace.UseVisualStyleBackColor = false;
+            this.btnBackspace.Click += new System.EventHandler(this.BtnBackspace_Click);
             // 
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.Color.Gainsboro;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(269, 197);
+            this.btnClear.Location = new System.Drawing.Point(268, 197);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(122, 75);
             this.btnClear.TabIndex = 54;
@@ -179,7 +185,7 @@
             // 
             this.btnClearEntry.BackColor = System.Drawing.Color.Gainsboro;
             this.btnClearEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClearEntry.Location = new System.Drawing.Point(139, 197);
+            this.btnClearEntry.Location = new System.Drawing.Point(140, 197);
             this.btnClearEntry.Name = "btnClearEntry";
             this.btnClearEntry.Size = new System.Drawing.Size(124, 75);
             this.btnClearEntry.TabIndex = 53;
@@ -199,114 +205,117 @@
             this.btnProcent.Tag = "%";
             this.btnProcent.Text = "%";
             this.btnProcent.UseVisualStyleBackColor = false;
+            this.btnProcent.Click += new System.EventHandler(this.BtnFunction_Click);
             // 
             // btnDivide
             // 
             this.btnDivide.BackColor = System.Drawing.Color.Gainsboro;
             this.btnDivide.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDivide.Location = new System.Drawing.Point(397, 278);
+            this.btnDivide.Location = new System.Drawing.Point(398, 278);
             this.btnDivide.Name = "btnDivide";
             this.btnDivide.Size = new System.Drawing.Size(122, 75);
             this.btnDivide.TabIndex = 51;
             this.btnDivide.Tag = "/";
             this.btnDivide.Text = "÷";
             this.btnDivide.UseVisualStyleBackColor = false;
-            this.btnDivide.Click += new System.EventHandler(this.BtnCalculate_Click);
+            this.btnDivide.Click += new System.EventHandler(this.BtnOperand_Click);
             // 
-            // btnSquare
+            // btnRoot
             // 
-            this.btnSquare.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnSquare.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSquare.Location = new System.Drawing.Point(269, 278);
-            this.btnSquare.Name = "btnSquare";
-            this.btnSquare.Size = new System.Drawing.Size(122, 75);
-            this.btnSquare.TabIndex = 50;
-            this.btnSquare.Tag = "vx";
-            this.btnSquare.Text = "√x";
-            this.btnSquare.UseVisualStyleBackColor = false;
+            this.btnRoot.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnRoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoot.Location = new System.Drawing.Point(268, 278);
+            this.btnRoot.Name = "btnRoot";
+            this.btnRoot.Size = new System.Drawing.Size(122, 75);
+            this.btnRoot.TabIndex = 50;
+            this.btnRoot.Tag = "vx";
+            this.btnRoot.Text = "√x";
+            this.btnRoot.UseVisualStyleBackColor = false;
+            this.btnRoot.Click += new System.EventHandler(this.BtnFunction_Click);
             // 
             // btnReciprocal
             // 
             this.btnReciprocal.BackColor = System.Drawing.Color.Gainsboro;
             this.btnReciprocal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReciprocal.Location = new System.Drawing.Point(139, 278);
+            this.btnReciprocal.Location = new System.Drawing.Point(140, 278);
             this.btnReciprocal.Name = "btnReciprocal";
             this.btnReciprocal.Size = new System.Drawing.Size(124, 75);
             this.btnReciprocal.TabIndex = 49;
             this.btnReciprocal.Tag = "1/x";
             this.btnReciprocal.Text = "⅟x";
             this.btnReciprocal.UseVisualStyleBackColor = false;
+            this.btnReciprocal.Click += new System.EventHandler(this.BtnFunction_Click);
             // 
             // btnMultiply
             // 
             this.btnMultiply.BackColor = System.Drawing.Color.Gainsboro;
             this.btnMultiply.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMultiply.Location = new System.Drawing.Point(397, 360);
+            this.btnMultiply.Location = new System.Drawing.Point(398, 360);
             this.btnMultiply.Name = "btnMultiply";
             this.btnMultiply.Size = new System.Drawing.Size(122, 75);
             this.btnMultiply.TabIndex = 47;
             this.btnMultiply.Tag = "*";
             this.btnMultiply.Text = "*";
             this.btnMultiply.UseVisualStyleBackColor = false;
-            this.btnMultiply.Click += new System.EventHandler(this.BtnCalculate_Click);
+            this.btnMultiply.Click += new System.EventHandler(this.BtnOperand_Click);
             // 
             // btnMin
             // 
             this.btnMin.BackColor = System.Drawing.Color.Gainsboro;
             this.btnMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMin.Location = new System.Drawing.Point(397, 441);
+            this.btnMin.Location = new System.Drawing.Point(398, 442);
             this.btnMin.Name = "btnMin";
             this.btnMin.Size = new System.Drawing.Size(122, 75);
             this.btnMin.TabIndex = 46;
             this.btnMin.Tag = "-";
             this.btnMin.Text = "-";
             this.btnMin.UseVisualStyleBackColor = false;
-            this.btnMin.Click += new System.EventHandler(this.BtnCalculate_Click);
+            this.btnMin.Click += new System.EventHandler(this.BtnOperand_Click);
             // 
             // btnPlus
             // 
             this.btnPlus.BackColor = System.Drawing.Color.Gainsboro;
             this.btnPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPlus.Location = new System.Drawing.Point(397, 522);
+            this.btnPlus.Location = new System.Drawing.Point(398, 522);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(122, 75);
             this.btnPlus.TabIndex = 45;
             this.btnPlus.Tag = "+";
             this.btnPlus.Text = "+";
             this.btnPlus.UseVisualStyleBackColor = false;
-            this.btnPlus.Click += new System.EventHandler(this.BtnCalculate_Click);
+            this.btnPlus.Click += new System.EventHandler(this.BtnOperand_Click);
             // 
             // btnEquals
             // 
             this.btnEquals.BackColor = System.Drawing.Color.Gainsboro;
             this.btnEquals.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEquals.Location = new System.Drawing.Point(397, 603);
+            this.btnEquals.Location = new System.Drawing.Point(398, 603);
             this.btnEquals.Name = "btnEquals";
             this.btnEquals.Size = new System.Drawing.Size(122, 75);
-            this.btnEquals.TabIndex = 0;
+            this.btnEquals.TabIndex = 1;
             this.btnEquals.Tag = "=";
             this.btnEquals.Text = "=";
             this.btnEquals.UseVisualStyleBackColor = false;
             this.btnEquals.Click += new System.EventHandler(this.BtnEquals_Click);
             // 
-            // bntM
+            // btnM
             // 
-            this.bntM.BackColor = System.Drawing.Color.White;
-            this.bntM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntM.Location = new System.Drawing.Point(269, 363);
-            this.bntM.Name = "bntM";
-            this.bntM.Size = new System.Drawing.Size(122, 100);
-            this.bntM.TabIndex = 43;
-            this.bntM.Tag = "M";
-            this.bntM.Text = "M";
-            this.bntM.UseVisualStyleBackColor = false;
-            this.bntM.Click += new System.EventHandler(this.BtnNumber_Click);
+            this.btnM.BackColor = System.Drawing.Color.White;
+            this.btnM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnM.Location = new System.Drawing.Point(268, 363);
+            this.btnM.Name = "btnM";
+            this.btnM.Size = new System.Drawing.Size(122, 100);
+            this.btnM.TabIndex = 43;
+            this.btnM.Tag = "M";
+            this.btnM.Text = "M";
+            this.btnM.UseVisualStyleBackColor = false;
+            this.btnM.Click += new System.EventHandler(this.BtnNumber_Click);
             // 
             // btnComma
             // 
             this.btnComma.BackColor = System.Drawing.Color.White;
             this.btnComma.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComma.Location = new System.Drawing.Point(269, 575);
+            this.btnComma.Location = new System.Drawing.Point(268, 575);
             this.btnComma.Name = "btnComma";
             this.btnComma.Size = new System.Drawing.Size(122, 100);
             this.btnComma.TabIndex = 42;
@@ -318,7 +327,7 @@
             // 
             this.btnI.BackColor = System.Drawing.Color.White;
             this.btnI.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnI.Location = new System.Drawing.Point(139, 575);
+            this.btnI.Location = new System.Drawing.Point(140, 575);
             this.btnI.Name = "btnI";
             this.btnI.Size = new System.Drawing.Size(124, 100);
             this.btnI.TabIndex = 41;
@@ -344,7 +353,7 @@
             // 
             this.btnL.BackColor = System.Drawing.Color.White;
             this.btnL.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnL.Location = new System.Drawing.Point(269, 469);
+            this.btnL.Location = new System.Drawing.Point(268, 469);
             this.btnL.Name = "btnL";
             this.btnL.Size = new System.Drawing.Size(122, 100);
             this.btnL.TabIndex = 35;
@@ -370,7 +379,7 @@
             // 
             this.btnX.BackColor = System.Drawing.Color.White;
             this.btnX.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnX.Location = new System.Drawing.Point(139, 469);
+            this.btnX.Location = new System.Drawing.Point(140, 469);
             this.btnX.Name = "btnX";
             this.btnX.Size = new System.Drawing.Size(124, 100);
             this.btnX.TabIndex = 33;
@@ -395,7 +404,7 @@
             // 
             this.btnD.BackColor = System.Drawing.Color.White;
             this.btnD.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnD.Location = new System.Drawing.Point(139, 363);
+            this.btnD.Location = new System.Drawing.Point(140, 363);
             this.btnD.Name = "btnD";
             this.btnD.Size = new System.Drawing.Size(124, 100);
             this.btnD.TabIndex = 64;
@@ -410,53 +419,65 @@
             this.btnMemShow.Enabled = false;
             this.btnMemShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMemShow.Image = global::RomanCalculator.Properties.Resources.ToonGeheugenknopSmall;
-            this.btnMemShow.Location = new System.Drawing.Point(439, 141);
+            this.btnMemShow.Location = new System.Drawing.Point(440, 142);
             this.btnMemShow.Name = "btnMemShow";
-            this.btnMemShow.Size = new System.Drawing.Size(80, 50);
+            this.btnMemShow.Size = new System.Drawing.Size(80, 49);
             this.btnMemShow.TabIndex = 61;
             this.btnMemShow.Tag = "M";
             this.btnMemShow.UseVisualStyleBackColor = false;
+            this.btnMemShow.Click += new System.EventHandler(this.BtnMemShow_Click);
             // 
-            // btnKwadraat
+            // btnSquare
             // 
-            this.btnKwadraat.BackColor = System.Drawing.Color.Gainsboro;
-            this.btnKwadraat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKwadraat.Image = ((System.Drawing.Image)(resources.GetObject("btnKwadraat.Image")));
-            this.btnKwadraat.Location = new System.Drawing.Point(9, 279);
-            this.btnKwadraat.Name = "btnKwadraat";
-            this.btnKwadraat.Size = new System.Drawing.Size(122, 75);
-            this.btnKwadraat.TabIndex = 48;
-            this.btnKwadraat.Tag = "x2";
-            this.btnKwadraat.UseVisualStyleBackColor = false;
+            this.btnSquare.BackColor = System.Drawing.Color.Gainsboro;
+            this.btnSquare.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSquare.Image = ((System.Drawing.Image)(resources.GetObject("btnSquare.Image")));
+            this.btnSquare.Location = new System.Drawing.Point(9, 278);
+            this.btnSquare.Name = "btnSquare";
+            this.btnSquare.Size = new System.Drawing.Size(122, 75);
+            this.btnSquare.TabIndex = 48;
+            this.btnSquare.Tag = "x2";
+            this.btnSquare.UseVisualStyleBackColor = false;
+            this.btnSquare.Click += new System.EventHandler(this.BtnFunction_Click);
             // 
-            // wndRomanCalculator
+            // lblMem
+            // 
+            this.lblMem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMem.Location = new System.Drawing.Point(4, 118);
+            this.lblMem.Name = "lblMem";
+            this.lblMem.Size = new System.Drawing.Size(51, 20);
+            this.lblMem.TabIndex = 65;
+            this.lblMem.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // WndRomanCalculator
             // 
             this.AcceptButton = this.btnEquals;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 689);
-            this.Controls.Add(this.btnD);
+            this.ClientSize = new System.Drawing.Size(530, 689);
+            this.Controls.Add(this.lblMem);
             this.Controls.Add(this.txtCalculation);
             this.Controls.Add(this.txtOutput);
+            this.Controls.Add(this.btnPlus);
+            this.Controls.Add(this.btnD);
             this.Controls.Add(this.btnMemShow);
             this.Controls.Add(this.btnMemStore);
             this.Controls.Add(this.btnMemMin);
             this.Controls.Add(this.btnMemPlus);
             this.Controls.Add(this.btnMemRecall);
             this.Controls.Add(this.btnMemClear);
-            this.Controls.Add(this.txtBackspace);
+            this.Controls.Add(this.btnBackspace);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClearEntry);
             this.Controls.Add(this.btnProcent);
             this.Controls.Add(this.btnDivide);
-            this.Controls.Add(this.btnSquare);
+            this.Controls.Add(this.btnRoot);
             this.Controls.Add(this.btnReciprocal);
-            this.Controls.Add(this.btnKwadraat);
+            this.Controls.Add(this.btnSquare);
             this.Controls.Add(this.btnMultiply);
             this.Controls.Add(this.btnMin);
-            this.Controls.Add(this.btnPlus);
             this.Controls.Add(this.btnEquals);
-            this.Controls.Add(this.bntM);
+            this.Controls.Add(this.btnM);
             this.Controls.Add(this.btnComma);
             this.Controls.Add(this.btnI);
             this.Controls.Add(this.btnV);
@@ -465,8 +486,9 @@
             this.Controls.Add(this.btnX);
             this.Controls.Add(this.btnNegate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "wndRomanCalculator";
+            this.Name = "WndRomanCalculator";
             this.Text = "Roman Calculator";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WndRomanCalculator_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,19 +504,19 @@
         internal System.Windows.Forms.Button btnMemPlus;
         internal System.Windows.Forms.Button btnMemRecall;
         internal System.Windows.Forms.Button btnMemClear;
-        internal System.Windows.Forms.Button txtBackspace;
+        internal System.Windows.Forms.Button btnBackspace;
         internal System.Windows.Forms.Button btnClear;
         internal System.Windows.Forms.Button btnClearEntry;
         internal System.Windows.Forms.Button btnProcent;
         internal System.Windows.Forms.Button btnDivide;
-        internal System.Windows.Forms.Button btnSquare;
+        internal System.Windows.Forms.Button btnRoot;
         internal System.Windows.Forms.Button btnReciprocal;
-        internal System.Windows.Forms.Button btnKwadraat;
+        internal System.Windows.Forms.Button btnSquare;
         internal System.Windows.Forms.Button btnMultiply;
         internal System.Windows.Forms.Button btnMin;
         internal System.Windows.Forms.Button btnPlus;
         internal System.Windows.Forms.Button btnEquals;
-        internal System.Windows.Forms.Button bntM;
+        internal System.Windows.Forms.Button btnM;
         internal System.Windows.Forms.Button btnComma;
         internal System.Windows.Forms.Button btnI;
         internal System.Windows.Forms.Button btnV;
@@ -503,6 +525,7 @@
         internal System.Windows.Forms.Button btnX;
         internal System.Windows.Forms.Button btnNegate;
         internal System.Windows.Forms.Button btnD;
+        private System.Windows.Forms.Label lblMem;
     }
 }
 
