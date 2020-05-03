@@ -425,6 +425,7 @@
             this.btnNegate.Tag = "+/-";
             this.btnNegate.Text = "+ / -";
             this.btnNegate.UseVisualStyleBackColor = false;
+            this.btnNegate.Click += new System.EventHandler(this.BtnNegate_Click);
             // 
             // btnD
             // 

@@ -6,9 +6,16 @@
         {
             int returnInt = 0;
             char[] Input = strInput.ToCharArray();
-            for (int i = 0; i < Input.Length; i++)
+            int start = 0;
+            bool isNegative = false;
+            if (Input[0] == '-')
             {
-                if (i == 0)
+                isNegative = true;
+                start = 1;
+            }
+            for (int i = start; i < Input.Length; i++)
+            {
+                if (i == start)
                 {
                     returnInt = GetRomanValue(Input[i]);
                 }
@@ -17,7 +24,10 @@
                     returnInt += GetRomanValue(Input[i], Input[i - 1]);
                 }
             }
-
+            if (isNegative)
+            {
+                returnInt *= -1;
+            }
             if (error || ConvertIntegerToRoman(returnInt) == strInput)
             {
                 return returnInt;

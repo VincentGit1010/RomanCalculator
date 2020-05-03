@@ -434,6 +434,14 @@ namespace RomanCalculator
             }
         }
 
+        private void BtnNegate_Click(object sender, EventArgs e)
+        {
+            if (txtOutput.Text != "")
+            {
+                txtOutput.Text = RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(txtOutput.Text, false) * -1);
+            }
+        }
+
         private void EnableMemFunctions(bool enable)
         {
             if (enable == true)
