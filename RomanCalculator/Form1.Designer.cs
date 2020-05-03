@@ -216,6 +216,7 @@
             this.btnProcent.Tag = "%";
             this.btnProcent.Text = "%";
             this.btnProcent.UseVisualStyleBackColor = false;
+            this.btnProcent.Click += new System.EventHandler(this.BtnProcent_Click);
             // 
             // btnDivide
             // 
