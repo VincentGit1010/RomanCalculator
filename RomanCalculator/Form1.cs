@@ -359,6 +359,42 @@ namespace RomanCalculator
             MessageBox.Show("1\\x is nog niet ingebouwd.");
         }
 
+        private void BtnSquare_Click(object sender, EventArgs e)
+        {
+            string outputText = txtOutput.Text;
+            if (txtCalculation.Text == "")
+            {
+                try
+                {
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+                Display(false);
+                txtCalculation.Text = outputText + "\u00B2";
+                txtOutput.Text = calculator.Square(outputText);
+                isCalculated = true;
+            }
+            else
+            {
+                txtCalculation.Text +=  outputText + "\u00B2";
+                try
+                {
+                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(calculator.Square(outputText), false);
+                    txtOutput.Text = calculator.Calculate();
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+
+            }
+        }
+
         private void EnableMemFunctions(bool enable)
         {
             if (enable == true)

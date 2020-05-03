@@ -466,6 +466,7 @@
             this.btnSquare.TabIndex = 48;
             this.btnSquare.Tag = "x2";
             this.btnSquare.UseVisualStyleBackColor = false;
+            this.btnSquare.Click += new System.EventHandler(this.BtnSquare_Click);
             // 
             // lblMem
             // 
