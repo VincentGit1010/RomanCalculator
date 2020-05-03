@@ -47,6 +47,12 @@ S02.14 Achter de komma.(MP)
 S02.15 wiskundige notatie grote getallen
 S02.16 wiskundige notatie kleine getallen
 
+Bug:
+V - X = = (dus -5 - 10)
+
+Aanvullend:
+Testproject binnen solution (MP) -> om bijvoorbeeld de methode ConvertIntToRoman te testen met verschillende waarden.
+
 
 
 

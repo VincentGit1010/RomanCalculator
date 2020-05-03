@@ -37,6 +37,5 @@ namespace RomanCalculator
             int Result = Convert.ToInt32(Math.Round(Math.Sqrt(dblInput)));
             return RomanNumbers.ConvertIntegerToRoman(Result);
         }
-
     }
 }

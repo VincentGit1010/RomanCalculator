@@ -14,8 +14,6 @@ namespace RomanCalculator
         public WndRomanCalculator()
         {
             InitializeComponent();
-            KeyPreview = true;
-
         }
 
         private void WndRomanCalculator_KeyPress(object sender, KeyPressEventArgs e)
@@ -132,7 +130,7 @@ namespace RomanCalculator
                 catch (InvalidInputException)
                 {
                     calculator.FirstNumber = 0;
-                    DisplayError(txtOutput.Text, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(txtOutput.Text,true)));
+                    DisplayError(txtOutput.Text, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(txtOutput.Text, true)));
                     return;
                 }
                 if (calculator.FirstNumber == 0)
@@ -173,9 +171,13 @@ namespace RomanCalculator
         {
             string outputText = txtOutput.Text;
             string calculationText = txtCalculation.Text;
+
             try
             {
-                calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                if (calculator.SecondNumber == 0)
+                {
+                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                }
             }
             catch (InvalidInputException)
             {
@@ -186,6 +188,13 @@ namespace RomanCalculator
             {
                 txtCalculation.Text = calculationText + " " + outputText + " = ";
                 DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                return;
+            }
+            if (isCalculated)
+            {
+                calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                txtCalculation.Text = outputText + " " + calculator.Operand + " " + RomanNumbers.ConvertIntegerToRoman(calculator.SecondNumber);
+                txtOutput.Text = calculator.Calculate();
                 return;
             }
 
@@ -328,7 +337,7 @@ namespace RomanCalculator
             {
                 DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, false)));
                 return;
-            }            
+            }
             Display(false);
             txtCalculation.Text = "\u221A" + outputText;
             txtOutput.Text = calculator.SquareRoot(outputText);
