@@ -328,20 +328,127 @@ namespace RomanCalculator
         private void BtnRoot_Click(object sender, EventArgs e)
         {
             string outputText = txtOutput.Text;
-            txtCalculation.Text = "";
-            try
+            if (txtCalculation.Text == "")
             {
-                calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                try
+                {
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+                Display(false);
+                txtCalculation.Text = "\u221A" + outputText;
+                txtOutput.Text = calculator.SquareRoot(outputText);
+                isCalculated = true;
             }
-            catch (InvalidInputException)
+            else
             {
-                DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, false)));
-                return;
+                txtCalculation.Text += "\u221A" + outputText;
+                try
+                {
+                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(calculator.SquareRoot(outputText), false);
+                    txtOutput.Text = calculator.Calculate();
+                }
+                catch (InvalidInputException)
+                {
+
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+
             }
-            Display(false);
-            txtCalculation.Text = "\u221A" + outputText;
-            txtOutput.Text = calculator.SquareRoot(outputText);
-            isCalculated = true;
+
+        }
+
+        private void BtnReciprocal_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("1\\x is nog niet ingebouwd.");
+        }
+
+        private void BtnSquare_Click(object sender, EventArgs e)
+        {
+            string outputText = txtOutput.Text;
+            if (txtCalculation.Text == "")
+            {
+                try
+                {
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+                Display(false);
+                txtCalculation.Text = outputText + "\u00B2";
+                txtOutput.Text = calculator.Square(outputText);
+                isCalculated = true;
+            }
+            else
+            {
+                txtCalculation.Text += outputText + "\u00B2";
+                try
+                {
+                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(calculator.Square(outputText), false);
+                    txtOutput.Text = calculator.Calculate();
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+            }
+        }
+
+        private void BtnProcent_Click(object sender, EventArgs e)
+        {
+            string outputText = txtOutput.Text;
+            double dblResult;
+            if (txtCalculation.Text == "")
+            {
+                try
+                {
+                    calculator.FirstNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+                Display(false);
+                txtCalculation.Text = outputText + "%";
+                dblResult = Math.Round(Convert.ToDouble(calculator.FirstNumber) / 100);
+                txtOutput.Text = RomanNumbers.ConvertIntegerToRoman(Convert.ToInt32(dblResult));
+                isCalculated = true;
+            }
+            else
+            {
+                txtCalculation.Text += outputText + "%";
+                try
+                {
+                    calculator.SecondNumber = RomanNumbers.ConvertRomanToInteger(outputText, false);
+                    double dblSecondnumber = Math.Round(Convert.ToDouble(calculator.SecondNumber) / 100);
+                    calculator.SecondNumber = Convert.ToInt32(dblSecondnumber);
+                    txtOutput.Text = calculator.Calculate();
+                    isCalculated = true;
+                }
+                catch (InvalidInputException)
+                {
+                    DisplayError(outputText, RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(outputText, true)));
+                    return;
+                }
+            }
+        }
+
+        private void BtnNegate_Click(object sender, EventArgs e)
+        {
+            if (txtOutput.Text != "")
+            {
+                txtOutput.Text = RomanNumbers.ConvertIntegerToRoman(RomanNumbers.ConvertRomanToInteger(txtOutput.Text, false) * -1);
+            }
         }
 
         private void EnableMemFunctions(bool enable)
@@ -363,3 +470,4 @@ namespace RomanCalculator
         }
     }
 }
+
